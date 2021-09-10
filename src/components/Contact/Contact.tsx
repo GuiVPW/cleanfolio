@@ -1,19 +1,25 @@
-import contact from '../../data/contact.json'
+import { Button } from '../Button'
+import { Section, SectionTitle } from '../Section'
 
-import './Contact.css'
+import { contactData } from '../../data'
+import { ContactModel } from '../../models'
 
-const Contact = () => {
-  if (!contact.email) return null
+export const Contact = () => {
+  if (!contactData.email) return null
 
   return (
-    <section className='section contact center' id='contact'>
-      <h2 className='section__title'>Contact</h2>
-      <a href={`mailto:${contact.email}`}>
-        <button type='button' className='btn btn--outline'>
+    <Section
+      className='center'
+      id='contact'
+      style={{ flexDirection: 'column' }}
+    >
+      <SectionTitle>Contact</SectionTitle>
+      <a href={`mailto:${contactData.email as ContactModel}`}>
+        <Button buttonType='outline' type='button'>
           Email me
-        </button>
+        </Button>
       </a>
-    </section>
+    </Section>
   )
 }
 
