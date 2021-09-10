@@ -1,9 +1,21 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-const ThemeContext = createContext({})
+type Theme = 'light' | 'dark'
+
+type ThemeContextTypes = [
+  {
+    themeName: Theme
+    toggleTheme: () => void
+  }
+]
+
+const ThemeContext = createContext<ThemeContextTypes>([
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  { themeName: 'light', toggleTheme: () => {} },
+])
 
 const ThemeProvider: React.FC = ({ children }) => {
-  const [themeName, setThemeName] = useState('light')
+  const [themeName, setThemeName] = useState<Theme>('light')
 
   useEffect(() => {
     const isDark = localStorage.getItem('themeName') === 'dark'
