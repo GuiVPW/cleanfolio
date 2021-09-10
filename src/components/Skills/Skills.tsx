@@ -1,23 +1,25 @@
 import uniqid from 'uniqid'
 
-import skills from '../../data/skills.json'
+import { skillsData } from '../../data'
 
-import './Skills.css'
+import { Section, SectionTitle } from '../Section'
+import { Button } from '../Button'
+import { SkillsList } from './Skills.styled'
 
-const Skills = () => {
-  if (!skills.length) return <></>
+export const Skills = () => {
+  if (!skillsData.length) return null
 
   return (
-    <section className='section skills' id='skills'>
-      <h2 className='section__title'>Skills</h2>
-      <ul className='skills__list'>
-        {skills.map((skill) => (
-          <li key={uniqid()} className='skills__list-item btn btn--plain'>
-            {skill}
+    <Section id='skills'>
+      <SectionTitle>Skills</SectionTitle>
+      <SkillsList>
+        {skillsData.map((skill) => (
+          <li key={uniqid()}>
+            <Button buttonType='plain'>{skill}</Button>
           </li>
         ))}
-      </ul>
-    </section>
+      </SkillsList>
+    </Section>
   )
 }
 
