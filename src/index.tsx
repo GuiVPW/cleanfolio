@@ -1,11 +1,14 @@
 import { render } from 'react-dom'
-import App from './App'
 import { ThemeProvider } from './contexts/theme'
-import './index.css'
+import { GlobalStyle, StylesProvider } from './styles'
+import App from './App'
 
 render(
   <ThemeProvider>
-    <App />
+    <StylesProvider>
+      <GlobalStyle />
+      <App />
+    </StylesProvider>
   </ThemeProvider>,
   document.getElementById('root')
 )
