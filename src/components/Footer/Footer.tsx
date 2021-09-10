@@ -1,14 +1,11 @@
-import './Footer.css'
+import { FooterContainer, FooterLink } from './Footer.styled'
 
-const Footer = () => (
-  <footer className='footer'>
-    <a
-      href='https://github.com/rajshekhar26/cleanfolio'
-      className='link footer__link'
-    >
+export const Footer = () => (
+  <FooterContainer>
+    <FooterLink href='https://github.com/rajshekhar26/cleanfolio'>
       Created By Raj Shekhar
-    </a>
-  </footer>
+    </FooterLink>
+  </FooterContainer>
 )
 
 export default Footer
