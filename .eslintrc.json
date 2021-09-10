@@ -8,7 +8,8 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "airbnb",
-    "prettier"
+    "prettier",
+    "plugin:import/typescript"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -19,6 +20,7 @@
   },
   "plugins": [
     "react",
+    "import",
     "prettier",
     "@typescript-eslint",
     "react-hooks"
@@ -36,10 +38,13 @@
       "error",
       "never",
       {
-        "json": "always"
+        "json": "always",
+        "jsonc": "always"
       }
     ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
     "react/jsx-filename-extension": [
       1,
       {
@@ -52,5 +57,18 @@
       }
     ],
     "react/prop-types": "off"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
