@@ -5,14 +5,11 @@ type Theme = 'light' | 'dark'
 type ThemeContextTypes = [
   {
     themeName: Theme
-    toggleTheme: () => void
+    toggleTheme?: () => void
   }
 ]
 
-const ThemeContext = createContext<ThemeContextTypes>([
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  { themeName: 'light', toggleTheme: () => {} },
-])
+const ThemeContext = createContext<ThemeContextTypes>([{ themeName: 'light' }])
 
 const ThemeProvider: React.FC = ({ children }) => {
   const [themeName, setThemeName] = useState<Theme>('light')
