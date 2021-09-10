@@ -1,7 +1,9 @@
-.projects__grid {
+import styled from 'styled-components'
+
+export const Grid = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
   grid-gap: 2em;
-}
+`

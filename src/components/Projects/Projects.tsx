@@ -1,23 +1,24 @@
 import uniqid from 'uniqid'
-import ProjectContainer from '../ProjectContainer/ProjectContainer'
 
-import projects from '../../data/projects.json'
+import { ProjectContainer } from '../ProjectContainer'
+import { Section, SectionTitle } from '../Section'
+import { Grid } from './Projects.styled'
 
-import './Projects.css'
+import { projectsData } from '../../data'
 
-const Projects = () => {
-  if (!projects.length) return null
+export const Projects = () => {
+  if (!projectsData.length) return null
 
   return (
-    <section id='projects' className='section projects'>
-      <h2 className='section__title'>Projects</h2>
+    <Section id='projects'>
+      <SectionTitle>Projects</SectionTitle>
 
-      <div className='projects__grid'>
-        {projects.map((project) => (
+      <Grid>
+        {projectsData.map((project) => (
           <ProjectContainer key={uniqid()} project={project} />
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Section>
   )
 }
 
