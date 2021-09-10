@@ -1,5 +1,7 @@
-import { header } from '../../portfolio'
 import Navbar from '../Navbar/Navbar'
+
+import header from '../../data/header.json'
+
 import './Header.css'
 
 const Header = () => {

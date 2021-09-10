@@ -1,5 +1,7 @@
 import uniqid from 'uniqid'
-import { skills } from '../../portfolio'
+
+import skills from '../../data/skills.json'
+
 import './Skills.css'
 
 const Skills = () => {
