@@ -1,45 +1,50 @@
 import uniqid from 'uniqid'
+
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LaunchIcon from '@material-ui/icons/Launch'
-import './ProjectContainer.css'
 
-// @ts-ignore
-const ProjectContainer = ({ project }) => (
-  <div className='project'>
+import { Project, Description, Stack } from './ProjectContainer.styled'
+
+import { Link } from '../Link'
+import { ProjectModel } from '../../models'
+
+export const ProjectContainer = ({ project }: { project: ProjectModel }) => (
+  <Project>
     <h3>{project.name}</h3>
 
-    <p className='project__description'>{project.description}</p>
+    <Description>{project.description}</Description>
     {project.stack && (
-      <ul className='project__stack'>
-        {/* @ts-ignore */}
+      <Stack>
         {project.stack.map((item) => (
-          <li key={uniqid()} className='project__stack-item'>
-            {item}
-          </li>
+          <li key={uniqid()}>{item}</li>
         ))}
-      </ul>
+      </Stack>
     )}
 
     {project.sourceCode && (
-      <a
+      <Link
+        type='icon'
+        target='_blank'
+        rel='noreferrer noopener'
         href={project.sourceCode}
         aria-label='source code'
-        className='link link--icon'
       >
         <GitHubIcon />
-      </a>
+      </Link>
     )}
 
     {project.livePreview && (
-      <a
+      <Link
+        type='icon'
+        target='_blank'
+        rel='noreferrer noopener'
         href={project.livePreview}
         aria-label='live preview'
-        className='link link--icon'
       >
         <LaunchIcon />
-      </a>
+      </Link>
     )}
-  </div>
+  </Project>
 )
 
 export default ProjectContainer
