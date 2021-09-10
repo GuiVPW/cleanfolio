@@ -1,9 +1,8 @@
-import { createContext, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { createContext, useEffect, useState } from 'react'
 
-const ThemeContext = createContext()
+const ThemeContext = createContext({})
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider: React.FC = ({ children }) => {
   const [themeName, setThemeName] = useState('light')
 
   useEffect(() => {
@@ -22,10 +21,6 @@ const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   )
-}
-
-ThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export { ThemeProvider, ThemeContext }

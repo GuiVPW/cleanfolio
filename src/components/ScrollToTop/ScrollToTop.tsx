@@ -19,7 +19,9 @@ const ScrollToTop = () => {
         <ArrowUpwardIcon fontSize='large' />
       </a>
     </div>
-  ) : null
+  ) : (
+    <></>
+  )
 }
 
 export default ScrollToTop

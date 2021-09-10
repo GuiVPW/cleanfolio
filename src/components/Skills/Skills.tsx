@@ -3,7 +3,7 @@ import { skills } from '../../portfolio'
 import './Skills.css'
 
 const Skills = () => {
-  if (!skills.length) return null
+  if (!skills.length) return <></>
 
   return (
     <section className='section skills' id='skills'>

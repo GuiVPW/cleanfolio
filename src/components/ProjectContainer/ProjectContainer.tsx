@@ -3,6 +3,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import LaunchIcon from '@material-ui/icons/Launch'
 import './ProjectContainer.css'
 
+// @ts-ignore
 const ProjectContainer = ({ project }) => (
   <div className='project'>
     <h3>{project.name}</h3>
@@ -10,6 +11,7 @@ const ProjectContainer = ({ project }) => (
     <p className='project__description'>{project.description}</p>
     {project.stack && (
       <ul className='project__stack'>
+        {/* @ts-ignore */}
         {project.stack.map((item) => (
           <li key={uniqid()} className='project__stack-item'>
             {item}

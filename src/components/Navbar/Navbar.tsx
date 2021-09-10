@@ -8,6 +8,7 @@ import { projects, skills, contact } from '../../portfolio'
 import './Navbar.css'
 
 const Navbar = () => {
+  // @ts-ignore
   const [{ themeName, toggleTheme }] = useContext(ThemeContext)
   const [showNavList, setShowNavList] = useState(false)
 
@@ -16,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className='center nav'>
       <ul
-        style={{ display: showNavList ? 'flex' : null }}
+        style={{ display: showNavList ? 'flex' : undefined }}
         className='nav__list'
       >
         {projects.length ? (
