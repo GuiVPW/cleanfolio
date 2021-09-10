@@ -1,25 +1,25 @@
-import Navbar from '../Navbar/Navbar'
+import { headerData } from '../../data'
 
-import header from '../../data/header.json'
+import { Navbar } from '../Navbar/Navbar'
+import { Link } from '../Link'
+import { HeaderContainer } from './Header.styled'
 
-import './Header.css'
-
-const Header = () => {
-  const { homepage, title } = header
+export const Header = () => {
+  const { homepage, title } = headerData
 
   return (
-    <header className='header center'>
+    <HeaderContainer className='center'>
       <h3>
         {homepage ? (
-          <a href={homepage} className='link'>
+          <Link href={homepage} type='normal'>
             {title}
-          </a>
+          </Link>
         ) : (
           title
         )}
       </h3>
       <Navbar />
-    </header>
+    </HeaderContainer>
   )
 }
 
