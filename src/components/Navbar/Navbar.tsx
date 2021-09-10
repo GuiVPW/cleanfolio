@@ -7,78 +7,84 @@ import CloseIcon from '@material-ui/icons/Close'
 
 import { ThemeContext } from '../../contexts/theme'
 
-import projects from '../../data/projects.json'
-import skills from '../../data/skills.json'
-import contact from '../../data/contact.json'
+import { projectsData, skillsData, contactData } from '../../data'
 
-import './Navbar.css'
+import { Button } from '../Button'
+import { Link } from '../Link'
+import { NavHamburguer, NavList } from './Navbar.styled'
 
-const Navbar = () => {
+export const Navbar = () => {
   const [{ themeName, toggleTheme }] = useContext(ThemeContext)
   const [showNavList, setShowNavList] = useState(false)
+
+  if (!contactData.email) return null
 
   const toggleNavList = () => setShowNavList(!showNavList)
 
   return (
-    <nav className='center nav'>
-      <ul
-        style={{ display: showNavList ? 'flex' : undefined }}
-        className='nav__list'
-      >
-        {projects.length ? (
-          <li className='nav__list-item'>
-            <a
+    <nav className='center'>
+      <NavList style={{ display: showNavList ? 'flex' : undefined }}>
+        {projectsData.length && (
+          <li>
+            <Link
+              target='_blank'
+              rel='noreferrer noopener'
+              type='nav'
               href='#projects'
               onClick={toggleNavList}
-              className='link link--nav'
             >
               Projects
-            </a>
+            </Link>
           </li>
-        ) : null}
+        )}
 
-        {skills.length ? (
-          <li className='nav__list-item'>
-            <a
+        {skillsData.length && (
+          <li>
+            <Link
+              target='_blank'
+              rel='noreferrer noopener'
+              type='nav'
               href='#skills'
               onClick={toggleNavList}
-              className='link link--nav'
             >
               Skills
-            </a>
+            </Link>
           </li>
-        ) : null}
+        )}
 
-        {contact.email ? (
-          <li className='nav__list-item'>
-            <a
+        {contactData.email && (
+          <li>
+            <Link
+              target='_blank'
+              rel='noreferrer noopener'
+              type='nav'
               href='#contact'
               onClick={toggleNavList}
-              className='link link--nav'
             >
               Contact
-            </a>
+            </Link>
           </li>
-        ) : null}
-      </ul>
+        )}
+      </NavList>
 
-      <button
+      <Button
+        buttonType='icon'
         type='button'
         onClick={toggleTheme}
-        className='center btn btn--icon'
+        className='center'
         aria-label='toggle theme'
       >
         {themeName === 'dark' ? <WbSunnyRoundedIcon /> : <Brightness2Icon />}
-      </button>
+      </Button>
 
-      <button
+      <NavHamburguer
+        buttonType='icon'
         type='button'
         onClick={toggleNavList}
-        className='btn btn--icon nav__hamburger'
         aria-label='toggle navigation'
       >
         {showNavList ? <CloseIcon /> : <MenuIcon />}
-      </button>
+      </NavHamburguer>
     </nav>
   )
 }
