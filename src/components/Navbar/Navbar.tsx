@@ -24,29 +24,17 @@ export const Navbar = () => {
   return (
     <nav className='center'>
       <NavList style={{ display: showNavList ? 'flex' : undefined }}>
-        {projectsData.length && (
+        {projectsData.length > 0 && (
           <li>
-            <Link
-              target='_blank'
-              rel='noreferrer noopener'
-              type='nav'
-              href='#projects'
-              onClick={toggleNavList}
-            >
+            <Link type='nav' href='#projects' onClick={toggleNavList}>
               Projects
             </Link>
           </li>
         )}
 
-        {skillsData.length && (
+        {skillsData.length > 0 && (
           <li>
-            <Link
-              target='_blank'
-              rel='noreferrer noopener'
-              type='nav'
-              href='#skills'
-              onClick={toggleNavList}
-            >
+            <Link type='nav' href='#skills' onClick={toggleNavList}>
               Skills
             </Link>
           </li>
@@ -54,13 +42,7 @@ export const Navbar = () => {
 
         {contactData.email && (
           <li>
-            <Link
-              target='_blank'
-              rel='noreferrer noopener'
-              type='nav'
-              href='#contact'
-              onClick={toggleNavList}
-            >
+            <Link type='nav' href='#contact' onClick={toggleNavList}>
               Contact
             </Link>
           </li>
