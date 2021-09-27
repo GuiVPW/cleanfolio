@@ -30,7 +30,10 @@ export const Contact = styled.div`
   margin-top: 2.4em;
 `
 
-export const AboutLink = styled(Link)`
+export const AboutLink = styled(Link).attrs({
+  target: '_blank',
+  rel: 'noreferrer noopener',
+})`
   ${(props) => props.type === 'icon' && { marginRight: '0.8em' }}
 `
 
