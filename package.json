@@ -9,7 +9,7 @@
       "url": "https://github.com/GuiVPW"
     }
   ],
-  "homepage": "http://guivpw.github.io/cleanfolio",
+  "homepage": "https://guivpw.github.io",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
