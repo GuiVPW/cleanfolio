@@ -8,7 +8,7 @@ export const aboutData: AboutModel = {
     'I am a huge lover of physics, astronomy & astrophysics. I enjoy creating out of the box projects and huge ideas in simple codes.',
   // resume: 'https://example.com',
   social: {
-    linkedin: 'https://www.linkedin.com/in/guilhermevp/https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/guilhermevp',
     github: 'https://github.com/GuiVPW',
   },
 }
